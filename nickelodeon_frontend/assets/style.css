@@ -1,11 +1,3 @@
-/* body{
-    background-image: url(https://i1.wp.com/cornellsun.com/wp-content/uploads/2016/11/Nickelodeon-old-school-nickelodeon-295359_1024_768.jpg?w=1024);
-    background-repeat: no-repeat;
-    background-position: center; 
-    
-} */
-
-
 body {
     width: 1200px;
     height: 1200px;
@@ -33,7 +25,6 @@ body {
     list-style: none;
     display: flex;
     justify-content: space-around;
-    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/c/cf/Cats_2019_poster.jpg"); */
     padding: 2em 0em;
     margin: 0em;
   }
