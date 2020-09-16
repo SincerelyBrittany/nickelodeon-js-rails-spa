@@ -5,10 +5,12 @@ class CharactersController < ApplicationController
       end
 
       def create
+        if !(character_params).empty? && !(character_params).nil?
         @character = Character.new(character_params)
         @character.tvShow = params[:show]
         @character.save
         render json: @character
+        end
       end 
 
       def show 

@@ -45,9 +45,11 @@ form.addEventListener("submit", e => {
         })
         .then(json =>{
             renderCharacter(json)
-            console.log(json)})
+            form.reset()
+            // console.log(json)
+        })
         .catch(err => { 
-            console.log(err)
+            // console.log(err)
         })  
 });
 
@@ -95,14 +97,54 @@ function renderCharacter(character){
   editButton.innerText = `Edit`
   editButton.addEventListener("click", () => {
     // div.remove()
-    fetch(`${API}/characters/${character.id}`, {
-      method: "PATCH"
-    })
-    .then(res=> res.json())
-    .then(data => console.log(data,"edit button"));
+    openModal(character, div);
+    // fetch(`${API}/characters/${character.id}`, {
+    //   method: "PATCH"
+    // })
+    // .then(res=> res.json())
+    // .then(data => console.log(data,"edit button"));
   })
 
   div.append(like, likeButton, editButton, deleteButton)
 
   charactersList.appendChild(div)
+}
+
+function openModal(character, div){
+    console.log(character, "this is character in open modal")
+    // console.log(div, "this is div in open modal")
+    var modal = document.getElementById("myModal");
+    var modalContent = document.querySelector(".modal-content")
+    var btn = document.querySelector("div.edit");
+    var span = document.getElementsByClassName("close")[0];
+    div.onclick = function(e) {
+        console.log(div, "this is e")
+        modalContent.innerHTML = `
+            <form class="updatedform-center">
+            <label for="name">Name:</label><br>
+            <input type="text" name="name"><br>
+            <label for="actor">Actor:</label><br>
+            <input type="text" name="actor"><br>
+            <label for="image">Image:</label><br>
+            <input type="text" name="image"><br>
+            <label for="ally">Ally:</label><br>
+            <input type="text" name="ally"><br>
+            <label for="enemy">Enemy:</label><br>
+            <input type="text" name="enemy"><br>
+            <label for="show">tvShow:</label><br>
+            <input type="text" name="show"><br>
+            <input type="submit" class="submit-btn" value="Add your character!">
+            <br>
+        </form>
+        `
+        modal.style.display = "block";
+    }
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
 }
