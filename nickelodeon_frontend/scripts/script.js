@@ -24,5 +24,25 @@ function renderCharacter(character){
     <p>Enemy: ${character.enemy}</p>
     <p>Played by ${character.actor}</p>
   `
+  const like = document.createElement("p")
+  like.innerText = `${character.name} has $0 in likes!`
+
+  const likeButton = document.createElement("div")
+  likeButton.className = "like character-button"
+  likeButton.innerText = `Like`
+
+  const deleteButton = document.createElement("div")
+  deleteButton.className = "delete character-button"
+  deleteButton.innerText = `Remove`
+  deleteButton.addEventListener("click", () => {
+    div.remove()
+    fetch(`${API}/characters/${character.id}`, {
+      method: "DELETE"
+    })
+    .then(res=> res.json())
+    .then(() => div.remove())
+  })
+  div.append(like, likeButton, deleteButton)
+
   charactersList.appendChild(div)
 }

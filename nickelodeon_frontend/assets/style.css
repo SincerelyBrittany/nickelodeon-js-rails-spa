@@ -67,3 +67,26 @@ h1, .form-center{
     width: 300px;
     height: 400px;
 }
+
+.character-button {
+    width: 28.5%;
+    float: right;
+    margin-right: 10%;
+    padding: 1%;
+    border: solid 2px;
+    border-radius: 8px;
+    margin-bottom: 1em;
+  }
+  
+  .character-button.like {
+    background-color:#1e65c2;
+  }
+  
+  .character-button.delete {
+    background-color: red;
+  }
+  
+  .character-button:hover {
+    background-color: orange;
+    text-decoration: underline;
+  }
