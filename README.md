@@ -40,14 +40,14 @@
   <p align="center">
     This is a simple single page application ("SPA") for nickelodeon characters. I grew up watching nickelodeon and wanted to create an application that would allow users to add and create characters, hopefully one day it can be a list of ALL characters from nick.com!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <!-- <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
     ·
     <a href="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/issues">Report Bug</a>
     ·
-    <a href="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/issues">Request Feature</a>
+    <a href="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/issues">Request Feature</a> -->
   </p>
 </p>
 
