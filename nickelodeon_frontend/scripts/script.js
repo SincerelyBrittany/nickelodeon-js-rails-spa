@@ -44,7 +44,7 @@ form.addEventListener("submit", e => {
             return res.json()
         })
         .then(json =>{
-            // renderCharacter(json)
+            renderCharacter(json)
             console.log(json)})
         .catch(err => { 
             console.log(err)

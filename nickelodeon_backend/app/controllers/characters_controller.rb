@@ -5,11 +5,10 @@ class CharactersController < ApplicationController
       end
 
       def create
-        byebug
         @character = Character.new(character_params)
+        @character.tvShow = params[:show]
         @character.save
-        byebug
-        # render json: @character
+        render json: @character
       end 
 
       def show 
@@ -26,7 +25,7 @@ class CharactersController < ApplicationController
       private
 
       def character_params
-          params.permit(:name, :actor, :ally, :enemy, :image, :show)
+          params.require(:character).permit(:name, :actor, :ally, :enemy, :image)
       end
     
 end
