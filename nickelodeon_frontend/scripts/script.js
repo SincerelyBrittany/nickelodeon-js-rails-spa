@@ -1,6 +1,7 @@
 const API = "http://localhost:3000"
 const body = document.querySelector("body")
-const form = document.querySelector("form")
+const form = document.querySelector("form.form-center")
+const updateform = document.querySelector("form.updatedform-center")
 
 fetch("http://localhost:3000/characters")
   .then(res => res.json())
@@ -75,7 +76,7 @@ function renderCharacter(character){
     <p>Show: ${character.show_name}</p>
   `
   const like = document.createElement("p")
-  like.innerText = `${character.name} has $0 in likes!`
+  like.innerText = `${character.name} has 0 in likes!`
 
   const likeButton = document.createElement("div")
   likeButton.className = "like character-button"
@@ -113,31 +114,42 @@ function renderCharacter(character){
 function openModal(character, div){
     console.log(character, "this is character in open modal")
     // console.log(div, "this is div in open modal")
-    var modal = document.getElementById("myModal");
-    var modalContent = document.querySelector(".modal-content")
-    var btn = document.querySelector("div.edit");
-    var span = document.getElementsByClassName("close")[0];
+    let modal = document.getElementById("myModal");
+    let modalContent = document.querySelector(".modal-content")
+    let btn = document.querySelector("div.edit");
+    let span = document.getElementsByClassName("close")[0];
     div.onclick = function(e) {
         console.log(div, "this is e")
         modalContent.innerHTML = `
             <form class="updatedform-center">
             <label for="name">Name:</label><br>
-            <input type="text" name="name"><br>
+            <input type="text" value=${character.name} name="name"><br>
             <label for="actor">Actor:</label><br>
-            <input type="text" name="actor"><br>
+            <input type="text" value=${character.actor} name="actor"><br>
             <label for="image">Image:</label><br>
-            <input type="text" name="image"><br>
+            <input type="text" value=${character.image} name="image"><br>
             <label for="ally">Ally:</label><br>
-            <input type="text" name="ally"><br>
+            <input type="text" value=${character.ally} name="ally"><br>
             <label for="enemy">Enemy:</label><br>
-            <input type="text" name="enemy"><br>
+            <input type="text" value=${character.enemy} name="enemy"><br>
             <label for="show">tvShow:</label><br>
             <input type="text" name="show"><br>
-            <input type="submit" class="submit-btn" value="Add your character!">
+            <input type="submit" class="update-submit-btn" value="Update character!">
             <br>
         </form>
         `
+
+        modalContent.addEventListener("submit", (e)=>{
+            e.preventDefault();
+            console.log(e.currentTarget)
+        })
         modal.style.display = "block";
+        let updateBtn = document.querySelector(".update-submit-btn")
+        console.log(updateBtn)
+        // document.querySelector(".update-submit-btn").addEventListener("submit",(e)=>{
+        //     e.preventDefault();
+        //     console.log(e)
+        // })
     }
     span.onclick = function() {
         modal.style.display = "none";
@@ -148,3 +160,5 @@ function openModal(character, div){
         }
       }
 }
+
+

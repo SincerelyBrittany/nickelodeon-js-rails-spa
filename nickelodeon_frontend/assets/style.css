@@ -131,3 +131,7 @@ h1, .form-center{
     text-decoration: none;
     cursor: pointer;
   }
+
+  .updatedform-center{
+      text-align: center;
+  }
