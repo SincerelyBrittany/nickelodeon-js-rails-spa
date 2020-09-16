@@ -134,7 +134,7 @@ function openModal(character, div){
 
         updateform.addEventListener("submit", (e)=>{
             e.preventDefault();
-            console.log(e.target.name)
+            // console.log(e.target.name)
             const data = {
                 id: character.id,
                 name: e.target.name.value,
@@ -144,8 +144,10 @@ function openModal(character, div){
                 enemy: e.target.enemy.value,
                 show: e.target.show.value
             }
-            console.log(data)
+            // console.log(data)
             patchRequest(data)
+            modal.style.display = "none";
+
         })
         modalContent.appendChild(updateform)
         modal.style.display = "block";
@@ -155,21 +157,25 @@ function openModal(character, div){
         modal.style.display = "none";
         modal.querySelector("form").remove()
     }
-    window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-          modal.querySelector("form").remove()
-        }
-      }
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //       modal.style.display = "none";
+    //       modal.querySelector("form").remove()
+    //     }
+    //   }
 }
 
-function patchRequest(data){
-    console.log(data)
-    // fetch(`${API}/characters/${character.id}`, {
-    //   method: "PATCH"
-    // })
-    // .then(res=> res.json())
-    // .then(data => console.log(data,"edit button"));
+function patchRequest(character){
+    console.log(character.id)
+    fetch(`${API}/characters/${character.id}`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(character)
+    })
+    .then(res=> res.json())
+    .then(data => {renderCharacter(data)});
 }
 
 

@@ -17,6 +17,13 @@ class CharactersController < ApplicationController
         @character = Character.find(params[:id])
         render json: @character
       end 
+
+      def update
+      @character = Character.find(params[:id])
+      @character.update(params.permit(:id, :name, :actor, :ally, :enemy, :image))
+      @character.tvShow = params[:show]
+      render json: @character
+      end
     
       def destroy
         @character = Character.find(params[:id])
