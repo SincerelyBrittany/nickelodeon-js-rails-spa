@@ -83,7 +83,6 @@ function renderCharacter(character){
   deleteButton.className = "delete character-button"
   deleteButton.innerText = `Remove`
   deleteButton.addEventListener("click", () => {
-    div.remove()
     fetch(`${API}/characters/${character.id}`, {
       method: "DELETE"
     })

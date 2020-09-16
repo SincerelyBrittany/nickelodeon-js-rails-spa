@@ -19,7 +19,7 @@ class CharactersController < ApplicationController
       def destroy
         @character = Character.find(params[:id])
         @character.destroy
-        render json: {message: "You did it, Brittany and friends!"}
+        render json: {message: "Yay"}
       end
 
       private
