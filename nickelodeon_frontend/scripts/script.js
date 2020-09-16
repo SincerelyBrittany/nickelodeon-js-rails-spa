@@ -99,11 +99,6 @@ function renderCharacter(character){
   editButton.addEventListener("click", () => {
     // div.remove()
     openModal(character, div);
-    // fetch(`${API}/characters/${character.id}`, {
-    //   method: "PATCH"
-    // })
-    // .then(res=> res.json())
-    // .then(data => console.log(data,"edit button"));
   })
 
   div.append(like, likeButton, editButton, deleteButton)
@@ -139,7 +134,18 @@ function openModal(character, div){
 
         updateform.addEventListener("submit", (e)=>{
             e.preventDefault();
-            console.log(e.currentTarget)
+            console.log(e.target.name)
+            const data = {
+                id: character.id,
+                name: e.target.name.value,
+                actor: e.target.actor.value,
+                image: e.target.image.value,
+                ally: e.target.ally.value,
+                enemy: e.target.enemy.value,
+                show: e.target.show.value
+            }
+            console.log(data)
+            patchRequest(data)
         })
         modalContent.appendChild(updateform)
         modal.style.display = "block";
@@ -155,6 +161,15 @@ function openModal(character, div){
           modal.querySelector("form").remove()
         }
       }
+}
+
+function patchRequest(data){
+    console.log(data)
+    // fetch(`${API}/characters/${character.id}`, {
+    //   method: "PATCH"
+    // })
+    // .then(res=> res.json())
+    // .then(data => console.log(data,"edit button"));
 }
 
 
