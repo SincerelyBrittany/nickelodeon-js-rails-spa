@@ -1,4 +1,78 @@
-img{
+/* body{
+    background-image: url(https://i1.wp.com/cornellsun.com/wp-content/uploads/2016/11/Nickelodeon-old-school-nickelodeon-295359_1024_768.jpg?w=1024);
+    background-repeat: no-repeat;
+    background-position: center; 
+    
+} */
+
+
+body {
+    width: 1200px;
+    height: 1200px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    z-index: 0;
+  }
+  
+  body::after {
+    background: url(https://i1.wp.com/cornellsun.com/wp-content/uploads/2016/11/Nickelodeon-old-school-nickelodeon-295359_1024_768.jpg?w=1024);
+    background-repeat: no-repeat;
+    background-position: top; 
+    content: "";
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;   
+  }
+
+  #menu-bar {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/c/cf/Cats_2019_poster.jpg"); */
+    padding: 2em 0em;
+    margin: 0em;
+  }
+  
+  
+  #menu-bar > li {
+    background-color: orange;
+    color: black;
+    padding: 1em 2em;
+    border-style: solid;
+    border-color: black;
+  }
+  
+  #menu-bar > li:hover {
+    background-color: white;
+    color: yellow;
+    border-color: yellow;
+    transition: .5s
+  }
+
+h1, .form-center{
+    text-align:center;
+}
+
+.characters-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.character-card {
+    /* width: 300px;
+    height: 500px; */
+    margin: 10px;
+    /* background-color: lightblue; */
+    border-radius: 10px;
+}
+
+.character-card img {
     width: 300px;
-    height: 350px;
+    height: 400px;
 }

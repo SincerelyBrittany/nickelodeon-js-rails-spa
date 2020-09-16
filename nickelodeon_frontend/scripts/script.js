@@ -20,8 +20,8 @@ function renderCharacter(character){
   div.innerHTML = `
     <img src="${character.image}" alt=${character.name}/>
     <p><strong>${character.name}</strong></p>
-    <p>${character.ally}</p>
-    <p>${character.enemy}</p>
+    <p>Ally: ${character.ally}</p>
+    <p>Enemy: ${character.enemy}</p>
     <p>Played by ${character.actor}</p>
   `
   charactersList.appendChild(div)
