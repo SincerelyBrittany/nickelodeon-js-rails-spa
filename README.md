@@ -32,7 +32,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/blob/master/nickelodeon_frontend/assets/images/Nickelodeon-old-school-nickelodeon-295359_1024_768.jpg">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/blob/master/nickelodeon_frontend/assets/images/Nickelodeon-old-school-nickelodeon-295359_1024_768.jpg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
