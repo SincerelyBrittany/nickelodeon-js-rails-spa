@@ -66,7 +66,12 @@ function renderCharacters(characters){
 function renderCharacter(character){
   const charactersList = document.querySelector(".characters-list")
   const div = document.createElement("div")
-  div.classList.add("character-card")
+  addCharacterContent(div, character)
+  charactersList.appendChild(div)
+}
+
+function addCharacterContent(div, character){
+    div.classList.add("character-card")
   div.innerHTML = `
     <img src="${character.image}" alt=${character.name}/>
     <p><strong>${character.name}</strong></p>
@@ -102,8 +107,6 @@ function renderCharacter(character){
   })
 
   div.append(like, likeButton, editButton, deleteButton)
-
-  charactersList.appendChild(div)
 }
 
 function openModal(character, div){
@@ -145,9 +148,9 @@ function openModal(character, div){
                 show: e.target.show.value
             }
             // console.log(data)
-            patchRequest(data)
+            patchRequest(div, data)
             modal.style.display = "none";
-
+            modal.querySelector("form").remove()
         })
         modalContent.appendChild(updateform)
         modal.style.display = "block";
@@ -165,7 +168,7 @@ function openModal(character, div){
     //   }
 }
 
-function patchRequest(character){
+function patchRequest(div, character){
     console.log(character.id)
     fetch(`${API}/characters/${character.id}`, {
       method: "PATCH",
@@ -175,7 +178,7 @@ function patchRequest(character){
       body: JSON.stringify(character)
     })
     .then(res=> res.json())
-    .then(data => {renderCharacter(data)});
+    .then(data => {addCharacterContent(div, data)});
 }
 
 
