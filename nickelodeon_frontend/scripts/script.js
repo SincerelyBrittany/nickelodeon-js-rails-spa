@@ -117,46 +117,42 @@ function openModal(character, div){
     let modal = document.getElementById("myModal");
     let modalContent = document.querySelector(".modal-content")
     let btn = document.querySelector("div.edit");
+    let updateform = document.createElement("form")
     let span = document.getElementsByClassName("close")[0];
-    div.onclick = function(e) {
-        console.log(div, "this is e")
-        modalContent.innerHTML = `
-            <form class="updatedform-center">
+    // div.onclick = function(e) {
+        updateform.innerHTML = `
             <label for="name">Name:</label><br>
-            <input type="text" value=${character.name} name="name"><br>
+            <input type="text" value="${character.name}" name="name"><br>
             <label for="actor">Actor:</label><br>
-            <input type="text" value=${character.actor} name="actor"><br>
+            <input type="text" value="${character.actor}" name="actor"><br>
             <label for="image">Image:</label><br>
-            <input type="text" value=${character.image} name="image"><br>
+            <input type="text" value="${character.image}" name="image"><br>
             <label for="ally">Ally:</label><br>
-            <input type="text" value=${character.ally} name="ally"><br>
+            <input type="text" value="${character.ally}" name="ally"><br>
             <label for="enemy">Enemy:</label><br>
-            <input type="text" value=${character.enemy} name="enemy"><br>
+            <input type="text" value="${character.enemy}" name="enemy"><br>
             <label for="show">tvShow:</label><br>
-            <input type="text" name="show"><br>
+            <input type="text" value="${character.show_name}" name="show"><br>
             <input type="submit" class="update-submit-btn" value="Update character!">
             <br>
-        </form>
         `
 
-        modalContent.addEventListener("submit", (e)=>{
+        updateform.addEventListener("submit", (e)=>{
             e.preventDefault();
             console.log(e.currentTarget)
         })
+        modalContent.appendChild(updateform)
         modal.style.display = "block";
-        let updateBtn = document.querySelector(".update-submit-btn")
-        console.log(updateBtn)
-        // document.querySelector(".update-submit-btn").addEventListener("submit",(e)=>{
-        //     e.preventDefault();
-        //     console.log(e)
-        // })
-    }
+    
+    // }
     span.onclick = function() {
         modal.style.display = "none";
+        modal.querySelector("form").remove()
     }
     window.onclick = function(event) {
         if (event.target == modal) {
           modal.style.display = "none";
+          modal.querySelector("form").remove()
         }
       }
 }
