@@ -1,4 +1,4 @@
-# nickelodeon-js-rails-spa
+
 
 <!--
 *** Thanks for checking out this README Template. If you have a suggestion that would
@@ -35,7 +35,7 @@
     <img src="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/blob/master/nickelodeon_frontend/assets/images/Nickelodeon-old-school-nickelodeon-295359_1024_768.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">I DO NOT OWN ANY RIGHTS TO THE NICKOLEON COMPANY, but I am a fan.</h3>
 
   <p align="center">
     This is a simple single page application ("SPA") for nickelodeon characters. I grew up watching nickelodeon and wanted to create an application that would allow users to add and create characters, hopefully one day it can be a list of ALL characters from nick.com!
@@ -45,9 +45,9 @@
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/issues">Request Feature</a>
   </p>
 </p>
 
@@ -78,18 +78,46 @@
 This application was built with a rails backend and Javascript frontend. 
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
-
+* [Ruby-on-Rails](https://guides.rubyonrails.org/)
+* [postgresql](https://www.postgresql.org/)
+* [byebug](https://rubygems.org/gems/byebug/versions/9.0.6)
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+*  Love ❤️
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get the application started you must have ruby and postgresql installed on your computer. Checkout the ruby on rails [getting-started-guide](https://guides.rubyonrails.org/v5.0/getting_started.html) to learn how to install it on your device. If you need to install postgres check out the doumentation [here](https://www.postgresql.org/about/).
+
+### Prerequisites
+Before running your server, you will need to install the gems and add content to your database manually or you can use the seeds file:
+
+To install the gems first cd into <a href="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/tree/master/nickelodeon_backend"> nickelodeon_backend</a> and run the following:
+
+```sh
+bundle install
+```
+
+To run your migrations and update your db/schema.rb file to match the structure of the database, run the following:
+
+```sh
+rails db:create
+```
+
+```sh
+rails db:migrate
+```
+
+To create data in the database, run the following:
+```sh
+rails db:seed
+```
+
+```sh
+rails s
+```
+and then go to your favorite browser and visit this webpage "http://localhost:3000/characters" 
 
 ### Prerequisites
 
@@ -101,35 +129,31 @@ npm install npm@latest -g
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone git@github.com:SincerelyBrittany/nickelodeon-js-rails-spa.git
 ```
-3. Install NPM packages
+3. Cd into backend and install the gemfile packages
 ```sh
-npm install
+bundle install
 ```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
-
+4. Run rails s
+5. cd into frontend and open index.html
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+<!-- ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-
+ -->
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/issues) for a list of proposed features (and known issues).
 
 
 
@@ -144,40 +168,24 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
-
-<!-- CONTACT -->
 ## Contact
+Connect/Follow me:
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
+[![Linkedin][linkedin-shield]][linkedin-url]
+[![Twitter][twitter-shield]][twitter-url]
+[![Dev.to][dev-to-shield]][dev-to-url]
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
-
+* [Youtube](https://youtube.com)
+* [Google](https://google.com)
+* [Flatiron School](https://flatironschool.com/)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
