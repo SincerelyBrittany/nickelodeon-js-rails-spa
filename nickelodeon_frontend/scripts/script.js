@@ -1,11 +1,20 @@
 const API = "http://localhost:3000"
 const body = document.querySelector("body")
-const form = document.querySelector("form.form-center")
+const form = document.querySelector("form.form-center")``
 const updateform = document.querySelector("form.updatedform-center")
+const showHTML= document.querySelector("#show-tab")
+
+showHTML.addEventListener("click",(e)=>{
+    e.preventDefault()
+    form.remove()
+})
+
 
 fetch("http://localhost:3000/characters")
   .then(res => res.json())
   .then(renderCharacters)
+
+
 
 
 //https://vignette.wikia.nocookie.net/peanutstreet/images/b/bc/Eliza-Thornberry.png
