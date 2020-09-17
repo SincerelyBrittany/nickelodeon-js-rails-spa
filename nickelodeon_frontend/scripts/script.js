@@ -82,7 +82,7 @@ function addCharacterContent(div, character){
     <p>Show: ${character.show_name}</p>
   `
   const like = document.createElement("p")
-  like.innerText = `${character.name} has 0 in likes!`
+  like.innerText = `${character.name} has ${character.likes} likes!`
 
   const likeButton = document.createElement("div")
   likeButton.className = "like character-button"
@@ -95,7 +95,7 @@ function addCharacterContent(div, character){
       .then(res=> res.json())
       .then((character)=> {
           console.log(character)
-          like.innerText = `${character.name} has ${character.likes} in likes!`
+          like.innerText = `${character.name} has ${character.likes} likes!`
         });
   })
 
