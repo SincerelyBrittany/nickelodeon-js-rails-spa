@@ -86,6 +86,15 @@ function addCharacterContent(div, character){
   const likeButton = document.createElement("div")
   likeButton.className = "like character-button"
   likeButton.innerText = `Like`
+  likeButton.addEventListener("click", ()=>{
+    fetch(`${API}/characters/${character.id}`, {
+        method: "PATCH",
+      })
+      .then(res=> res.json())
+      .then((character)=> {
+          like.innerText = `${character.name} has ${character.likes} in likes!`
+        });
+  })
 
   const deleteButton = document.createElement("div")
   deleteButton.className = "delete character-button"
