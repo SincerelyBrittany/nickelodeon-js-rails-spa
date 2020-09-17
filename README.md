@@ -35,7 +35,7 @@
     <img src="https://github.com/SincerelyBrittany/nickelodeon-js-rails-spa/blob/master/nickelodeon_frontend/assets/images/Nickelodeon-old-school-nickelodeon-295359_1024_768.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">I DO NOT OWN ANY RIGHTS TO THE NICKOLEON COMPANY, but I am a fan.</h3>
+  <h3 align="center">I DO NOT OWN ANY RIGHTS TO THE NICKELEON COMPANY, but I am a fan.</h3>
 
   <p align="center">
     This is a simple single page application ("SPA") for nickelodeon characters. I grew up watching nickelodeon and wanted to create an application that would allow users to add and create characters, hopefully one day it can be a list of ALL characters from nick.com!

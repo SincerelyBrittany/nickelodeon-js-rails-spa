@@ -20,7 +20,9 @@ class CharactersController < ApplicationController
 
       def update
         if params[:name].nil?
-          byebug 
+          @character = Character.find(params[:id])
+          @character.add_like
+          render json: @character
         else 
           @character = Character.find(params[:id])
           @character.update(params.permit(:id, :name, :actor, :ally, :enemy, :image))

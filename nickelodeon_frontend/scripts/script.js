@@ -67,6 +67,7 @@ function renderCharacter(character){
   const charactersList = document.querySelector(".characters-list")
   const div = document.createElement("div")
   addCharacterContent(div, character)
+  console.log(character)
   charactersList.appendChild(div)
 }
 
@@ -89,9 +90,11 @@ function addCharacterContent(div, character){
   likeButton.addEventListener("click", ()=>{
     fetch(`${API}/characters/${character.id}`, {
         method: "PATCH",
+        body: JSON.stringify({likes: 1})
       })
       .then(res=> res.json())
       .then((character)=> {
+          console.log(character)
           like.innerText = `${character.name} has ${character.likes} in likes!`
         });
   })
