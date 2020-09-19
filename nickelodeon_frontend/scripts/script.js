@@ -1,18 +1,42 @@
 const API = "http://localhost:3000"
 const body = document.querySelector("body")
-const form = document.querySelector("form.form-center")``
+const form = document.querySelector("form.form-center")
 const updateform = document.querySelector("form.updatedform-center")
 const showHTML= document.querySelector("#show-tab")
+const characterHTML= document.querySelector("#character-tab")
+const app = document.querySelector(".app")
+const renderedItems = document.createElement("div.renderedItems")
+let memorizedCharacters = []
+
 
 showHTML.addEventListener("click",(e)=>{
-    e.preventDefault()
-    form.remove()
+   e.preventDefault()
+   app.innerHTML = ""
+   renderedItems.innerHTML = ""
+   console.log(app)
 })
 
+   characterHTML.addEventListener("click",(e)=>{
+      e.preventDefault()
+      // res.forEach(r => memorizedCharacters.push(r))
+      console.log(memorizedCharacters, "this is memorized")
+      body.append(app)
+      body.append(renderedItems)
+      renderCharacters(memorizedCharacters)
+    })
 
 fetch("http://localhost:3000/characters")
   .then(res => res.json())
-  .then(renderCharacters)
+  .then(res =>{
+    // characterHTML.addEventListener("click",(e)=>{
+    //   e.preventDefault()
+    //   res.forEach(r => memorizedCharacters.push(r))
+    //   console.log(res, "this is res")
+    res.forEach(r => memorizedCharacters.push(r))
+      renderCharacters(res)
+    // })
+  })
+
 
 
 
@@ -67,7 +91,8 @@ form.addEventListener("submit", e => {
 
 function renderCharacters(characters){
   const charactersList = document.createElement("div")
-  body.appendChild(charactersList)
+  body.append(renderedItems)
+  renderedItems.appendChild(charactersList)
   charactersList.outerHTML = '<div class="characters-list">'
   characters.forEach(renderCharacter)
 }
@@ -76,7 +101,7 @@ function renderCharacter(character){
   const charactersList = document.querySelector(".characters-list")
   const div = document.createElement("div")
   addCharacterContent(div, character)
-  console.log(character)
+  // console.log(character)
   charactersList.appendChild(div)
 }
 
