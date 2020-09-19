@@ -8,10 +8,21 @@ const app = document.querySelector(".app")
 const renderedItems = document.createElement("div.renderedItems")
 let memorizedCharacters = []
 
+function myFunction() {
+  var x = document.getElementById("header1");
+  if (form.style.display === "none") {
+    form.style.display = "block";
+    x.style.display = "block";
+  } else {
+    form.style.display = "none";
+    x.style.display = "none";
+  }
+}
+
 
 showHTML.addEventListener("click",(e)=>{
    e.preventDefault()
-   app.innerHTML = ""
+  //  app.innerHTML = ""
    renderedItems.innerHTML = ""
    console.log(app)
 })
@@ -20,7 +31,7 @@ showHTML.addEventListener("click",(e)=>{
       e.preventDefault()
       // res.forEach(r => memorizedCharacters.push(r))
       console.log(memorizedCharacters, "this is memorized")
-      body.append(app)
+      // body.append(app)
       body.append(renderedItems)
       renderCharacters(memorizedCharacters)
     })
@@ -78,6 +89,7 @@ form.addEventListener("submit", e => {
             return res.json()
         })
         .then(json =>{
+            memorizedCharacters.push(json)
             renderCharacter(json)
             form.reset()
             // console.log(json)
