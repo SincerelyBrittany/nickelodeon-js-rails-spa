@@ -140,7 +140,7 @@ function addCharacterContent(div, character){
       })
       .then(res=> res.json())
       .then((character)=> {
-          console.log(character)
+          // console.log(character)
           like.innerText = `${character.name} has ${character.likes} likes!`
         });
   })
@@ -168,7 +168,7 @@ function addCharacterContent(div, character){
 }
 
 function openModal(character, div){
-    console.log(character, "this is character in open modal")
+    // console.log(character, "this is character in open modal")
     // console.log(div, "this is div in open modal")
     let modal = document.getElementById("myModal");
     let modalContent = document.querySelector(".modal-content")
