@@ -1,3 +1,4 @@
+const api = new ApiService
 const API = "http://localhost:3000"
 const body = document.querySelector("body")
 const form = document.querySelector("form.form-center")
@@ -36,15 +37,10 @@ showHTML.addEventListener("click",(e)=>{
       renderCharacters(memorizedCharacters)
     })
 
-fetch("http://localhost:3000/characters")
-  .then(res => res.json())
-  .then(res =>{
-    // characterHTML.addEventListener("click",(e)=>{
-    //   e.preventDefault()
-    //   res.forEach(r => memorizedCharacters.push(r))
-    //   console.log(res, "this is res")
+  api.getAllCharacters().then(res =>{
     res.forEach(r => memorizedCharacters.push(r))
       renderCharacters(res)
+      const character = new Character(res)
     // })
   })
 
@@ -101,13 +97,13 @@ form.addEventListener("submit", e => {
 
 
 
-function renderCharacters(characters){
-  const charactersList = document.createElement("div")
-  body.append(renderedItems)
-  renderedItems.appendChild(charactersList)
-  charactersList.outerHTML = '<div class="characters-list">'
-  characters.forEach(renderCharacter)
-}
+// function renderCharacters(characters){
+//   const charactersList = document.createElement("div")
+//   body.append(renderedItems)
+//   renderedItems.appendChild(charactersList)
+//   charactersList.outerHTML = '<div class="characters-list">'
+//   characters.forEach(renderCharacter)
+// }
 
 function renderCharacter(character){
   const charactersList = document.querySelector(".characters-list")
