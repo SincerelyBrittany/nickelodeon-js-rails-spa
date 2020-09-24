@@ -25,13 +25,13 @@ showHTML.addEventListener("click",(e)=>{
    e.preventDefault()
   //  app.innerHTML = ""
    renderedItems.innerHTML = ""
-   console.log(app)
+  //  console.log(app)
 })
 
    characterHTML.addEventListener("click",(e)=>{
       e.preventDefault()
       // res.forEach(r => memorizedCharacters.push(r))
-      console.log(memorizedCharacters, "this is memorized")
+      // console.log(memorizedCharacters, "this is memorized")
       // body.append(app)
       body.append(renderedItems)
       renderCharacters(memorizedCharacters)
@@ -40,7 +40,7 @@ showHTML.addEventListener("click",(e)=>{
   api.getAllCharacters().then(res =>{
     res.forEach(r => memorizedCharacters.push(r))
       renderCharacters(res)
-      const character = new Character(res)
+      // const character = new Character(res)
     // })
   })
 
@@ -49,13 +49,13 @@ showHTML.addEventListener("click",(e)=>{
 
 
 //https://vignette.wikia.nocookie.net/peanutstreet/images/b/bc/Eliza-Thornberry.png
-//   form.addEventListener("submit", (e) =>{
-//       e.preventDefault()
-//       var elements = Array.from(form.elements)
-//       elements.forEach(element => {
-//         let element.name = element.value
-//       })
-//   })
+  // form.addEventListener("submit", (e) =>{
+  //     e.preventDefault()
+  //     var elements = Array.from(form.elements)
+  //     elements.forEach(element => {
+  //       let element.name = element.value
+  //     })
+  // })
 
 form.addEventListener("submit", e => {
     e.preventDefault();
@@ -66,7 +66,7 @@ form.addEventListener("submit", e => {
             reqBody[element.name] = element.value;
         }
     });
-    console.log(reqBody); // Call to function for form submission
+     // Call to function for form submission
     fetch("http://localhost:3000/characters", {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           headers: {
@@ -97,71 +97,71 @@ form.addEventListener("submit", e => {
 
 
 
-// function renderCharacters(characters){
-//   const charactersList = document.createElement("div")
-//   body.append(renderedItems)
-//   renderedItems.appendChild(charactersList)
-//   charactersList.outerHTML = '<div class="characters-list">'
-//   characters.forEach(renderCharacter)
+function renderCharacters(characters){
+  const charactersList = document.createElement("div")
+  body.append(renderedItems)
+  renderedItems.appendChild(charactersList)
+  charactersList.outerHTML = '<div class="characters-list">'
+  characters.forEach(character => new Character(character))
+}
+
+// function renderCharacter(character){
+//   const charactersList = document.querySelector(".characters-list")
+//   const div = document.createElement("div")
+//   addCharacterContent(div, character)
+//   // console.log(character)
+//   charactersList.appendChild(div)
 // }
 
-function renderCharacter(character){
-  const charactersList = document.querySelector(".characters-list")
-  const div = document.createElement("div")
-  addCharacterContent(div, character)
-  // console.log(character)
-  charactersList.appendChild(div)
-}
+// function addCharacterContent(div, character){
+//     div.classList.add("character-card")
+//   div.innerHTML = `
+//     <img src="${character.image}" alt=${character.name}/>
+//     <p><strong>${character.name}</strong></p>
+//     <p>Ally: ${character.ally}</p>
+//     <p>Enemy: ${character.enemy}</p>
+//     <p>Played by ${character.actor}</p>
+//     <p>Show: ${character.show_name}</p>
+//   `
+//   const like = document.createElement("p")
+//   like.innerText = `${character.name} has ${character.likes} likes!`
 
-function addCharacterContent(div, character){
-    div.classList.add("character-card")
-  div.innerHTML = `
-    <img src="${character.image}" alt=${character.name}/>
-    <p><strong>${character.name}</strong></p>
-    <p>Ally: ${character.ally}</p>
-    <p>Enemy: ${character.enemy}</p>
-    <p>Played by ${character.actor}</p>
-    <p>Show: ${character.show_name}</p>
-  `
-  const like = document.createElement("p")
-  like.innerText = `${character.name} has ${character.likes} likes!`
+//   const likeButton = document.createElement("div")
+//   likeButton.className = "like character-button"
+//   likeButton.innerText = `Like`
+//   likeButton.addEventListener("click", ()=>{
+//     fetch(`${API}/characters/${character.id}`, {
+//         method: "PATCH",
+//         body: JSON.stringify({likes: 1})
+//       })
+//       .then(res=> res.json())
+//       .then((character)=> {
+//           // console.log(character)
+//           like.innerText = `${character.name} has ${character.likes} likes!`
+//         });
+//   })
 
-  const likeButton = document.createElement("div")
-  likeButton.className = "like character-button"
-  likeButton.innerText = `Like`
-  likeButton.addEventListener("click", ()=>{
-    fetch(`${API}/characters/${character.id}`, {
-        method: "PATCH",
-        body: JSON.stringify({likes: 1})
-      })
-      .then(res=> res.json())
-      .then((character)=> {
-          // console.log(character)
-          like.innerText = `${character.name} has ${character.likes} likes!`
-        });
-  })
+//   const deleteButton = document.createElement("div")
+//   deleteButton.className = "delete character-button"
+//   deleteButton.innerText = `Remove`
+//   deleteButton.addEventListener("click", () => {
+//     fetch(`${API}/characters/${character.id}`, {
+//       method: "DELETE"
+//     })
+//     .then(res=> res.json())
+//     .then(() => div.remove())
+//   })
 
-  const deleteButton = document.createElement("div")
-  deleteButton.className = "delete character-button"
-  deleteButton.innerText = `Remove`
-  deleteButton.addEventListener("click", () => {
-    fetch(`${API}/characters/${character.id}`, {
-      method: "DELETE"
-    })
-    .then(res=> res.json())
-    .then(() => div.remove())
-  })
+//   const editButton = document.createElement("div")
+//   editButton.className = "edit character-button"
+//   editButton.innerText = `Edit`
+//   editButton.addEventListener("click", () => {
+//     // div.remove()
+//     openModal(character, div);
+//   })
 
-  const editButton = document.createElement("div")
-  editButton.className = "edit character-button"
-  editButton.innerText = `Edit`
-  editButton.addEventListener("click", () => {
-    // div.remove()
-    openModal(character, div);
-  })
-
-  div.append(like, likeButton, editButton, deleteButton)
-}
+//   div.append(like, likeButton, editButton, deleteButton)
+// }
 
 function openModal(character, div){
     // console.log(character, "this is character in open modal")
@@ -223,7 +223,7 @@ function openModal(character, div){
 }
 
 function patchRequest(div, character){
-    console.log(character.id)
+    // console.log(character.id)
     fetch(`${API}/characters/${character.id}`, {
       method: "PATCH",
       headers: {
