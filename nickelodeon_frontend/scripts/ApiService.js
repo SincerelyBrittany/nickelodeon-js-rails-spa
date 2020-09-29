@@ -1,6 +1,11 @@
 class ApiService{
+    constructor(){
+        this.baseURL = 
+        "http://localhost:3000/characters"
+    }
+
     getAllCharacters(){
-        return fetch("http://localhost:3000/characters")
+        return fetch(this.baseURL)
         .then(res => res.json())
     }
 

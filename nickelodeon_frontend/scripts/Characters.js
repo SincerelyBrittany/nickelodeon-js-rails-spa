@@ -1,19 +1,45 @@
 class Character {
-    constructor(character){
+    static all = []
+
+        constructor(character){
         this.character = character
-        debugger
-        this.render() 
+        this.render()
+        console.log(this.character)
+        this.constructor.all.push(this)
     }
+
+    static getAll(){
+        api.getAllCharacters().then(characters => characters.forEach(character => new Character(character)))
+        // api.getAllCharacters().then(toys => toys.forEach(toy => new Character(toy)))
+      }
+
     render(){
+        //  debugger
         const charactersList = document.querySelector(".characters-list")
         const div = document.createElement("div")
-        // console.log(this.character)
-        addCharacterContent(div, this.character)
-        // card.classList.add("card")
-        // this.card = card
-        // this.renderInnerHTML()
-        // toyCollection.appendChild(card)
+        div.classList.add("character-card")
+        div.dataset.id = this.character.id
+        this.cardContent(div)
+        charactersList.appendChild(div)
+        // app.appendChild(div)
+        return charactersList
     }   
+
+    cardContent(card){
+        const characterImg = document.createElement('img')
+        characterImg.src = `${this.character.image}`
+        // characterImg.alt = this.character.name
+        const characterName= document.createElement('p')
+        characterName.innerText = `${this.character.name}`
+        const characterAlly= document.createElement('p')
+        characterAlly.innerText = `${this.character.ally}`
+        const characterEnemy= document.createElement('p')
+        characterEnemy.innerText = `${this.character.enemy}`
+        const characterActor= document.createElement('p')
+        characterActor.innerText = `${this.character.actor}`
+        return card.append(characterImg, characterName, characterAlly, characterEnemy, characterEnemy)
+
+    }
     
     
     //   addCharacterContent(div, character)

@@ -1,12 +1,20 @@
 const api = new ApiService
-const API = "http://localhost:3000"
-const body = document.querySelector("body")
-const form = document.querySelector("form.form-center")
-const updateform = document.querySelector("form.updatedform-center")
-const showHTML= document.querySelector("#show-tab")
-const characterHTML= document.querySelector("#character-tab")
+// const API = "http://localhost:3000"
+// const body = document.querySelector("body")
+// const form = document.querySelector("form.form-center")
+// const updateform = document.querySelector("form.updatedform-center")
+// const showHTML= document.querySelector("#show-tab")
+// const characterHTML= document.querySelector("#character-tab")
 const app = document.querySelector(".app")
-const renderedItems = document.createElement("div.renderedItems")
+const renderedItems = document.querySelector(".renderedItems")
+
+// const characterFormInstance = new Character
+Character.getAll()
+
+// const toyFormInstance = new ToyForm
+// characterCard.getAll()
+// characterCard.setEventListeners()
+
 // let memorizedCharacters = []
 
 // function myFunction() {
